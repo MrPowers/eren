@@ -7,5 +7,7 @@ def hello():
 
 
 def createOrReplaceHiveView(viewName, deltaPath, deltaVersion):
-    query = f"CREATE OR REPLACE VIEW {viewName} AS SELECT * FROM delta.`{deltaPath}@v{deltaVersion}`"
-    return SparkSession.getActiveSession().sql(query)
+#     query = f"CREATE OR REPLACE VIEW {viewName} AS SELECT * FROM delta.`{deltaPath}@v{deltaVersion}`"
+    viewDf = SparkSession.getActiveSession().read.format("delta").option("versionAsOf",deltaVersion).load(deltaPath)
+    viewDf.createOrReplaceTempView(viewName)
+#     return SparkSession.getActiveSession().sql(query)
