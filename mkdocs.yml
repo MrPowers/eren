@@ -20,7 +20,7 @@ plugins:
             show_source: true
 
 nav:
-  - Quin: index.md
+  - Eren: index.md
   - API Docs: reference/SUMMARY.md
 
 markdown_extensions:
