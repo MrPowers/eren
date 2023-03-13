@@ -4,7 +4,7 @@ This library contains Hive helper methods for PySpark users.
 
 This README is a good way to learn about the Hive metastore for PySpark, even if you're not going to use this library directly.
 
-![eren](https://github.com/MrPowers/eren/blob/main/images/eren.jpeg)
+![eren](https://github.com/MrPowers/eren/raw/main/images/eren.jpeg)
 
 ## Hive metastore background
 
