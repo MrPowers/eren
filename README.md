@@ -36,4 +36,37 @@ This table stores data in XX.
 
 ## Hive Parquet vs Delta Lake tables
 
+## Working with Hadoop File System from Python
+
+`Eren` also provides a top level interface for working with any implementation of HadoopFileSystem (ibcluding S3, HDFS/DBFS and Local File System).
+
+```python
+from eren import fs
+
+# spark: SparkSession
+
+hdfs = fs.HadoopFileSystem(spark, "hdfs:///data") # returns an instance for access to HDFS
+s3fs = fs.HadoopFileSystem(spark, "s3a:///bucket/prefix") # returns an instance for access to S3
+local_fs = fs.HadoopFileSystem(spark, "file:///home/my-home") # return an instance for access to LocalFS
+```
+
+### Glob Files
+
+You can list files and directories on remote file system:
+
+```python
+list_of_files = hdfs.glob("hdfs:///raw/table/**/*.csv") # list all CSV files recursively inside a folder on HDFS
+```
+
+### Read/Write UTF-8 strings
+
+You can read and write UTF-8 strings from/to remote file system. But be carefully! This method is extremely slow compared to regular `spark.read`. Do not use this for reading/writing data!
+
+```python
+import json
+
+hdfs.write_utf8("hdfs:///data/results/results.json", json.dumps({"key1": 1, "key2": 3}), mode="w")
+json.loads(hdfs.read_utf8("hdfs:///data/results/results.json"))
+```
+
 
