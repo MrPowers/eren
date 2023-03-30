@@ -73,6 +73,6 @@ json.loads(hdfs.read_utf8("hdfs:///data/results/results.json"))
 
 ### Blogs
 
-- [Working With File System from PySpark](https://semyonsinchenko.github.io/ssinchenko/post/working-with-fs-pyspark/)
+- [Semyon Sinchenko: Working With File System from PySpark](https://semyonsinchenko.github.io/ssinchenko/post/working-with-fs-pyspark/)
 
 
