@@ -69,4 +69,10 @@ hdfs.write_utf8("hdfs:///data/results/results.json", json.dumps({"key1": 1, "key
 json.loads(hdfs.read_utf8("hdfs:///data/results/results.json"))
 ```
 
+## Community
+
+### Blogs
+
+- [Working With File System from PySpark](https://semyonsinchenko.github.io/ssinchenko/post/working-with-fs-pyspark/)
+
 
