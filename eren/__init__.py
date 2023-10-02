@@ -2,10 +2,6 @@ import pyspark
 from pyspark.sql import SparkSession
 
 
-def hello():
-    return "hi"
-
-
 def createOrReplaceHiveView(view_name: str, delta_path: str, delta_version: str):
     """
     Args:
